@@ -1,0 +1,1 @@
+<!DOCTYPE html><html><body>Bilan du jour</body></html>

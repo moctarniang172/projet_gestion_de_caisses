@@ -1,0 +1,1 @@
+<!DOCTYPE html><html><body>Formulaire vente</body></html>
