@@ -78,29 +78,7 @@ class Vente{
 }
 
 
-    //paiement du reste et mettre a jour le reste qui est sur la vente
-    public function enregistrerPaiement($conn, $id, $montant_paye){
-    // Vérifier si la vente existe
-    $stmt0 = $conn->prepare("SELECT reste FROM ventes WHERE id = :id");
-    $stmt0->execute([':id' => $id]);
-    $vente = $stmt0->fetch(PDO::FETCH_ASSOC);
-
-    if(!$vente){
-        return false; // vente introuvable
-    }
-
-    $nouveau_reste = max(0, $vente['reste'] - $montant_paye);
-
-    // Mise à jour du reste
-    $stmt = $conn->prepare("
-        UPDATE ventes SET reste = :reste
-        WHERE id = :id
-    ");
-
-    return $stmt->execute([
-        ':reste' => $nouveau_reste,
-        ':id' => $id
-    ]);
+    
 }
 
 
@@ -108,4 +86,3 @@ class Vente{
 
 
 
-}
