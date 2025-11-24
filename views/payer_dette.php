@@ -31,7 +31,7 @@
 <body>
     <div class="container">
         <h2>Payer une Dette</h2>
-        <form action="/controllers/payer_dette.php" method="POST">
+        <form action="../controllers/dette.php" method="POST">
             <!-- ID de la vente -->
             <div class="mb-3">
                 <label for="id_vente" class="form-label">ID de la Vente</label>

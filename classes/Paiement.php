@@ -25,11 +25,11 @@ class Paiement{
         }
 
         // Enregistrer le paiement
-        $query = "INSERT INTO paiements (id_vente, montant_paye, date_paiement) 
-                  VALUES (:id_vente, :montant_paye, :date_paiement)";
+        $query = "INSERT INTO paiements (id_vente, montant, date_paiement) 
+                  VALUES (:id_vente, :montant, :date_paiement)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id_vente', $this->id_vente);
-        $stmt->bindParam(':montant_paye', $this->montant_paye);
+        $stmt->bindParam(':montant', $this->montant_paye);
         $stmt->bindParam(':date_paiement', $this->date_paiement);
         $result = $stmt->execute();
 
@@ -45,12 +45,10 @@ class Paiement{
     }
     //lister les personnes qui ont une dettes
     public function Lister($conn){
-        // Récupérer toutes les ventes avec reste > 0
-        $query = "SELECT * FROM ventes WHERE reste > 0 ORDER BY date_vente DESC";
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-        $ventes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $query = "SELECT * FROM ventes WHERE reste > 0 ORDER BY date_vente DESC";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
-
-    }
 }
