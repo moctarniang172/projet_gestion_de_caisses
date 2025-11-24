@@ -31,7 +31,7 @@
 <body>
     <div class="container">
         <h2>Ajouter une Vente</h2>
-        <form action="/controllers/vente.php" method="POST">
+        <form action="/controllers/ajout_vente.php" method="POST">
             <!-- Nom du client -->
             <div class="mb-3">
                 <label for="nom_client" class="form-label">Nom du Client</label>

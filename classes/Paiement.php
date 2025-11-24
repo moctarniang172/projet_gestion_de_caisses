@@ -43,4 +43,14 @@ class Paiement{
         }
         return $result;
     }
+    //lister les personnes qui ont une dettes
+    public function Lister($conn){
+        // Récupérer toutes les ventes avec reste > 0
+        $query = "SELECT * FROM ventes WHERE reste > 0 ORDER BY date_vente DESC";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+        $ventes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+    }
 }
